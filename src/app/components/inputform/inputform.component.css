@@ -1,0 +1,22 @@
+.input-form{
+    display: flex;
+    flex-direction: column;
+    max-width: 300px; /* Adjust the max-width as needed */
+    margin: auto;
+}
+
+label {
+    margin-bottom: 10px; /* Adjust the space between label and input */
+  }
+
+  input {
+    padding: 8px;
+    margin-bottom: 10px; /* Adjust the space between input and next label */
+    box-sizing: border-box;
+    width: 100%; /* Make the input fill the container */
+  }
+/* .input-form label{
+    margin-left: -8.5em;
+    padding: 10px;
+} margin-left: 40em;
+margin-top: 7em; */

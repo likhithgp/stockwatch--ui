@@ -1,0 +1,25 @@
+<div class="input-form">
+<form #basicFrom="ngForm" (ngSubmit)="getData(basicFrom.value)">
+   <label><b>Company Name:</b></label> <input type="text" required #name="ngModel" name="stockName" placeholder="Enter Company Name" ngModel/>
+   <span *ngIf="name.invalid && name.touched" style="color: red;" >!Error : Company Name can't be empty</span>
+
+   <label><b>Stock Symbol:</b></label> <input type="text" required ngModel #a="ngModel" name="stockSymbol" placeholder="Enter Stock Symbol"/>
+   <span *ngIf="a.invalid && a.touched" style="color: red;" >!Error :Stock Symbol can't be empty</span>
+
+    <label><b>Currency Type:</b></label><input type="text" required ngModel #Currency="ngModel" name="currencyType" placeholder="Enter Currency type"/>
+    <span *ngIf="Currency.invalid && Currency.touched" style="color: red;" >!Error :Need Currency Type Value</span>
+
+    <label><b>Current Price:</b></label> <input type="number" ngModel #c="ngModel" name="currentPrice" placeholder="Enter current Price"/>
+    
+
+    <label><b>52 week high:</b></label><input type="number" ngModel #d="ngModel" name="highOf52weeks" placeholder="Enter 52 week high price"/>
+    
+
+    <label><b>52 week low:</b></label><input type="number" ngModel #e="ngModel" name="lowOf52weeks" placeholder="Enter 52 week low price"/>
+    
+
+    <button type="submit" [disabled]="basicFrom.invalid" (click)="onClick(basicFrom.value)">Add</button>&nbsp;&nbsp;&nbsp;&nbsp;
+    <button type="submit" [disabled]="basicFrom.invalid" (click)="onClickUpdate(basicFrom.value)">Update</button>
+
+</form>
+</div>

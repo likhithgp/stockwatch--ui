@@ -1,0 +1,42 @@
+<div class="size-alter">
+    <p>Select Page Size: </p>
+    <select  (change)="onTableSizeChange($event)">
+        <option *ngFor="let size of tableSizes">
+            {{size}}
+        </option>
+    </select>
+</div>
+<div class="pagination-div">
+    <table>
+      <thead>
+        <th> Comapny Name</th>
+        <th> Stock Symbol</th>
+        <th> Currency</th>
+        <th> Current price</th>
+        <th> 52 week High</th>
+        <th> 52 week Low</th>
+      </thead>
+      <tbody>
+        <tr *ngFor= "let item of displayData | paginate:{
+            itemsPerPage:pageSize,
+            currentPage:page,
+            totalItems:tableSize}; let i=index">
+            <td>{{item.stockName}}</td>
+            <td>{{item.stockSymbol}}</td>
+            <td>{{item.currencyType}}</td>
+            <td>{{item.currentPrice}}</td>
+            <td>{{item.highOf52weeks}}</td>
+            <td>{{item.lowOf52weeks}}</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+<div class="pagenation-bar">
+    <pagination-controls 
+       previousLabel="pre"
+       nextLabel="Next"
+       (pageChange)="onTableDataChange($event)">
+
+    </pagination-controls>
+</div>
+
